@@ -228,8 +228,9 @@ void FIFOController::sendRAM() {
 void FIFOController::sendRL() {
   int r = (int) latest_reward;
   bool is_terminal = m_environment.isTerminal();
+  int lives = m_settings->lives();
 
-  fprintf(m_fout, "%d,%d:", is_terminal, r);
+  fprintf(m_fout, "%d,%d,%d:", is_terminal, r, lives);
 }
 
 void FIFOController::readAction(Action& action_a, Action& action_b) {
